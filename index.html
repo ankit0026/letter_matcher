@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Matcher</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h1,h4,p,h3{
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+        }
+        h3{
+            color: blue;
+        }
+        input[type="text"],input[type="number"]{
+            padding: 5px;
+            width: 50%;
+            border-top: 0px;
+            border-left: 0px;
+            border-right: 0px;
+        }
+        ::placeholder{
+            text-align: center;
+            color: grey;
+            font-weight: bold;
+        }
+        input[type="submit"]{
+            padding: 5px;
+            background-color: white;
+            border-radius: 4px;
+            cursor:pointer;
+            margin-left: 45%;
+            font-weight: bold;
+        }
+        span{
+            color: red;
+        }
+        input[type="submit"]:hover{
+            background-color: greenyellow;
+            border-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Letter Matcher</h1>
+    <h4>Enter your Words</h4>
+    <p>First Word :<span>*</span> <input type="text" id="word1" placeholder="Enter First Word"></p>
+    <p>Second Word :<span>*</span> <input type="text" id="word2" placeholder="Enter Second Word"></p>
+    <h3>Same letter:-</h3>
+    <p id="word"></p>
+    <h3>Number of same letter:-</h3>
+    <p id="num"></p>
+    <input type="submit" id = "button" value = "Submit" onclick="sameword()">
+    <script>
+        function sameword(){
+            Word1=document.getElementById("word1").value;
+            Word2=document.getElementById("word2").value;
+            var c=0;
+            var str1=""
+            if((Word1.length=="")||(Word2.length=="")){
+                alert("Please, Enter all '*' field!")
+            }
+            else{
+            for(var i=0;i<Word1.length;i++){
+                for(var j=0;j<Word2.length;j++){
+                    if(Word1[i]==Word2[j]){
+                        str1=(str1+Word1[i]);
+                        c=c+1;
+                        break;
+                    }
+                }
+            }
+            document.getElementById("word").innerHTML=str1;
+            document.getElementById("num").innerHTML=c;
+        }
+    }
+    </script>
+</body>
+</html>
